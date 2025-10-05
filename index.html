@@ -3,160 +3,222 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cuidar al que Cuida</title>
+  <title>Vitalis I.P.S - Bienestar Psicológico</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #fdf6f9;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #fdf6f0;
       color: #333;
     }
+
+    /* ===== HEADER ===== */
     header {
-      background: linear-gradient(90deg, #ff6b6b, #feca57);
-      color: white;
-      text-align: center;
-      padding: 2rem;
+      background-color: #a8dadc;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    header p {
-      margin: 0.5rem 0 0;
-      font-size: 1.2rem;
-    }
+
     nav {
-      background: #ff9f43;
-      padding: 0.8rem;
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      padding: 10px 20px;
     }
-    nav a {
+
+    nav img {
+      height: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #1d3557;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: #f1faee;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(to right, #ffe5ec, #faf3e0);
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero img {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.5em;
+      color: #1d3557;
+      margin: 10px 0;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      color: #444;
+    }
+
+    .hero .btn {
+      display: inline-block;
+      background-color: #457b9d;
       color: white;
-      margin: 0 1rem;
+      padding: 12px 25px;
+      border-radius: 25px;
       text-decoration: none;
       font-weight: bold;
+      transition: 0.3s;
     }
-    nav a:hover {
-      text-decoration: underline;
+
+    .hero .btn:hover {
+      background-color: #1d3557;
     }
+
+    /* ===== SECCIONES ===== */
     section {
-      padding: 2rem;
-      max-width: 1000px;
+      padding: 60px 20px;
+      max-width: 1200px;
       margin: auto;
     }
-    h2 {
-      color: #ff6b6b;
-    }
-    .img-space {
-      background: #ffe8f0;
-      border: 2px dashed #ff6b6b;
-      padding: 1rem;
+
+    section h2 {
       text-align: center;
-      margin: 1rem 0;
-      border-radius: 10px;
+      margin-bottom: 40px;
+      font-size: 2em;
+      color: #1d3557;
     }
-    .img-space p {
-      margin: 0;
-      color: #555;
-      font-style: italic;
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
     }
-    .podcast {
-      background: #fff3e6;
-      border: 2px solid #ff9f43;
-      padding: 1.5rem;
-      border-radius: 12px;
+
+    .card {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       text-align: center;
-      margin-top: 2rem;
+      transition: transform 0.3s;
     }
-    .podcast audio {
-      margin-top: 1rem;
-      width: 100%;
+
+    .card:hover {
+      transform: translateY(-5px);
     }
+
+    .card h3 {
+      color: #1d3557;
+      margin-top: 0;
+    }
+
+    .card p {
+      font-size: 0.95em;
+      color: #444;
+    }
+
+    /* ===== CONTACTO ===== */
+    .contacto {
+      background-color: #ffe5ec;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .contacto p {
+      margin: 5px 0;
+    }
+
+    /* ===== FOOTER ===== */
     footer {
-      background: #ff6b6b;
-      color: white;
+      background-color: #a8dadc;
       text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
+      padding: 20px;
+      margin-top: 50px;
+      color: #1d3557;
     }
   </style>
 </head>
 <body>
+
+  <!-- ===== HEADER ===== -->
   <header>
-    <h1>Cuidar al que Cuida</h1>
-    <p>Un espacio para apoyar a los padres cuidadores de niños con leucemia</p>
+    <nav>
+      <img src="logo.png" alt="Logo Vitalis I.P.S">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="podcast.html">Podcast</a></li>
+        <li><a href="foro.html">Foros</a></li>
+        <li><a href="audiolibros.html">Audiolibros</a></li>
+        <li><a href="mision-vision.html">Misión y Visión</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <nav>
-    <a href="#nosotros">Nosotros</a>
-    <a href="#recursos">Recursos</a>
-    <a href="#equipo">Equipo</a>
-    <a href="#podcast">Podcast</a>
-  </nav>
-
-  <section id="nosotros">
-    <h2>Sobre el Proyecto</h2>
-    <p>
-      Cuidar al que cuida es una página web especialmente creada para brindar apoyo emocional, 
-      orientación y recursos a cuidadores que enfrentan el difícil camino de acompañar a un hijo 
-      diagnosticado con leucemia. Sabemos que el impacto emocional puede ser profundo, generando 
-      ansiedad, tristeza y agotamiento. Este espacio está diseñado con sensibilidad y empatía, 
-      como un refugio seguro pensado para los padres.
-    </p>
-
-    <div class="img-space">
-      <p>📸 Aquí puedes insertar una imagen de referencia (familia, apoyo psicológico, etc.)</p>
-    </div>
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <img src="logo.png" alt="Vitalis I.P.S">
+    <h1>Bienvenido a Vitalis I.P.S</h1>
+    <p>Un espacio de acompañamiento psicológico pensado para tu bienestar, crecimiento y equilibrio emocional.</p>
+    <a href="mision-vision.html" class="btn">Conoce nuestra misión</a>
   </section>
 
-  <section id="recursos">
-    <h2>Recursos Disponibles</h2>
-    <ul>
-      <li>Podcast semanal con psicólogos y padres con experiencias similares.</li>
-      <li>Audiolibros sobre manejo del estrés y crecimiento personal.</li>
-      <li>Foro de apoyo entre padres y cuidadores.</li>
-      <li>Artículos y guías sobre ansiedad, depresión y afrontamiento.</li>
-      <li>Acceso a apoyo psicológico profesional.</li>
-    </ul>
-
-    <div class="img-space">
-      <p>📸 Aquí puedes insertar otra imagen relacionada con los recursos</p>
-    </div>
-  </section>
-
-  <section id="equipo">
-    <h2>Roles de Participantes</h2>
-    <p>El proyecto cuenta con un equipo multidisciplinario:</p>
-    <ul>
-      <li><strong>Coordinador general:</strong> Dirige el desarrollo y supervisa la calidad de los contenidos.</li>
-      <li><strong>Psicóloga clínica:</strong> Ofrece acompañamiento emocional y diseña recursos terapéuticos.</li>
-      <li><strong>Trabajador social:</strong> Identifica recursos institucionales y orienta sobre derechos sociales.</li>
-      <li><strong>Ingeniero de software:</strong> Desarrolla la página web y garantiza accesibilidad digital.</li>
-      <li><strong>Médico oncológico:</strong> Brinda orientación médica clara y empática sobre el proceso de tratamiento.</li>
-    </ul>
-
-    <div class="img-space">
-      <p>📸 Aquí puedes insertar una imagen del equipo o profesionales</p>
-    </div>
-  </section>
-
+  <!-- ===== SERVICIOS ===== -->
   <section>
-  <h2>🎙️ Nuestro Podcast</h2>
-  <p>Escucha nuestros episodios semanales con psicólogos, padres y expertos.</p>
-  <!-- 🔹 Aquí solo cambias el enlace de YouTube -->
-  <iframe width="100%" height="315" 
-          src="https://www.youtube.com/watch?v=WX9-_jbTWdM&list=RDWX9-_jbTWdM&start_radio=1" 
-          title="YouTube video player" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-  </iframe>
-</section>
+    <h2>Lo que ofrecemos</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Podcast</h3>
+        <p>Escucha conversaciones sobre salud mental y desarrollo personal.</p>
+      </div>
+      <div class="card">
+        <h3>Foros</h3>
+        <p>Comparte experiencias y crea comunidad en un espacio seguro.</p>
+      </div>
+      <div class="card">
+        <h3>Audiolibros</h3>
+        <p>Aprende y reflexiona a través de nuestros audiolibros especializados.</p>
+      </div>
+    </div>
+  </section>
 
+  <!-- ===== CONTACTO ===== -->
+  <section>
+    <h2>Contáctanos</h2>
+    <div class="contacto">
+      <p><strong>Teléfono:</strong> +57 300 000 0000</p>
+      <p><strong>Email:</strong> contacto@vitalis.com</p>
+      <p><strong>Ubicación:</strong> Calle 123 #45-67, Bogotá, Colombia</p>
+    </div>
+  </section>
 
+  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>© 2025 Cuidar al que Cuida - Todos los derechos reservados</p>
+    <p>© 2025 Vitalis I.P.S - Todos los derechos reservados</p>
   </footer>
+
 </body>
 </html>
+
