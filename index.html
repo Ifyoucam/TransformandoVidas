@@ -3,170 +3,121 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vitalis I.P.S - Bienestar Psicológico</title>
+  <title>Vitalis I.P.S - Psicología</title>
   <style>
     body {
       margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background-color: #fdf6f0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
       color: #333;
     }
 
-    /* ===== HEADER ===== */
     header {
-      background-color: #a8dadc;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background-color: #457b9d;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
     }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: auto;
-      padding: 10px 20px;
-    }
-
-    nav img {
-      height: 50px;
+    header img {
+      width: 100px;
+      margin-bottom: 10px;
     }
 
     nav ul {
       list-style: none;
-      margin: 0;
+      margin: 20px 0 0 0;
       padding: 0;
       display: flex;
+      justify-content: center;
       gap: 20px;
     }
 
     nav ul li a {
       text-decoration: none;
-      color: #1d3557;
+      color: white;
       font-weight: bold;
-      padding: 8px 15px;
-      border-radius: 8px;
       transition: 0.3s;
     }
 
     nav ul li a:hover {
-      background-color: #f1faee;
+      color: #a8dadc;
     }
 
-    /* ===== HERO ===== */
-    .hero {
-      background: linear-gradient(to right, #ffe5ec, #faf3e0);
-      text-align: center;
-      padding: 80px 20px;
-    }
-
-    .hero img {
-      width: 120px;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: 2.5em;
-      color: #1d3557;
-      margin: 10px 0;
-    }
-
-    .hero p {
-      font-size: 1.2em;
-      max-width: 700px;
-      margin: 0 auto 20px;
-      color: #444;
-    }
-
-    .hero .btn {
-      display: inline-block;
-      background-color: #457b9d;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .hero .btn:hover {
-      background-color: #1d3557;
-    }
-
-    /* ===== SECCIONES ===== */
-    section {
-      padding: 60px 20px;
+    main {
+      padding: 40px 20px;
       max-width: 1200px;
       margin: auto;
     }
 
-    section h2 {
+    .intro {
       text-align: center;
-      margin-bottom: 40px;
-      font-size: 2em;
+      margin-bottom: 50px;
+    }
+
+    .intro h1 {
+      font-size: 2.5em;
       color: #1d3557;
     }
 
-    .cards {
+    .intro p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 20px auto;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
     }
 
     .card {
       background-color: #fff;
-      padding: 25px;
-      border-radius: 15px;
+      border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
       text-align: center;
-      transition: transform 0.3s;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
     }
 
     .card h3 {
-      color: #1d3557;
       margin-top: 0;
+      color: #1d3557;
     }
 
     .card p {
-      font-size: 0.95em;
-      color: #444;
+      color: #555;
     }
 
-    /* ===== CONTACTO ===== */
-    .contacto {
-      background-color: #ffe5ec;
-      border-radius: 15px;
-      padding: 30px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .contacto p {
-      margin: 5px 0;
-    }
-
-    /* ===== FOOTER ===== */
     footer {
-      background-color: #a8dadc;
+      background-color: #457b9d;
+      color: white;
       text-align: center;
-      padding: 20px;
-      margin-top: 50px;
-      color: #1d3557;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    a.card-link {
+      text-decoration: none;
+      color: inherit;
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
   <header>
+    <img src="IMAGENES/logo.png" alt="Logo Vitalis I.P.S">
+    <h1>Vitalis I.P.S</h1>
     <nav>
-      <img src="logo.png" alt="Logo Vitalis I.P.S">
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="podcast.html">Podcast</a></li>
@@ -177,48 +128,55 @@
     </nav>
   </header>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero">
-    <img src="logo.png" alt="Vitalis I.P.S">
-    <h1>Bienvenido a Vitalis I.P.S</h1>
-    <p>Un espacio de acompañamiento psicológico pensado para tu bienestar, crecimiento y equilibrio emocional.</p>
-    <a href="mision-vision.html" class="btn">Conoce nuestra misión</a>
-  </section>
+  <main>
+    <section class="intro">
+      <h1>Bienvenido a Vitalis I.P.S</h1>
+      <p>
+        En <strong>Vitalis I.P.S</strong> trabajamos por el bienestar psicológico y emocional 
+        de las personas. Ofrecemos recursos digitales como podcasts, foros, audiolibros 
+        y espacios de orientación que buscan fortalecer la salud mental y el crecimiento personal.
+      </p>
+    </section>
 
-  <!-- ===== SERVICIOS ===== -->
-  <section>
-    <h2>Lo que ofrecemos</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Podcast</h3>
-        <p>Escucha conversaciones sobre salud mental y desarrollo personal.</p>
-      </div>
-      <div class="card">
-        <h3>Foros</h3>
-        <p>Comparte experiencias y crea comunidad en un espacio seguro.</p>
-      </div>
-      <div class="card">
-        <h3>Audiolibros</h3>
-        <p>Aprende y reflexiona a través de nuestros audiolibros especializados.</p>
-      </div>
-    </div>
-  </section>
+    <section>
+      <h2 style="text-align:center; color:#1d3557; margin-bottom:30px;">Lo que ofrecemos</h2>
+      <div class="cards-grid">
+        <a href="podcast.html" class="card-link">
+          <div class="card">
+            <h3>Podcast</h3>
+            <p>Entrevistas y reflexiones sobre psicología y bienestar emocional.</p>
+          </div>
+        </a>
 
-  <!-- ===== CONTACTO ===== -->
-  <section>
-    <h2>Contáctanos</h2>
-    <div class="contacto">
-      <p><strong>Teléfono:</strong> +57 300 000 0000</p>
-      <p><strong>Email:</strong> contacto@vitalis.com</p>
-      <p><strong>Ubicación:</strong> Calle 123 #45-67, Bogotá, Colombia</p>
-    </div>
-  </section>
+        <a href="foro.html" class="card-link">
+          <div class="card">
+            <h3>Foros</h3>
+            <p>Espacios de diálogo para compartir experiencias y resolver dudas.</p>
+          </div>
+        </a>
 
-  <!-- ===== FOOTER ===== -->
+        <a href="audiolibros.html" class="card-link">
+          <div class="card">
+            <h3>Audiolibros</h3>
+            <p>Recursos para acompañar tu crecimiento personal y emocional.</p>
+          </div>
+        </a>
+
+        <a href="mision-vision.html" class="card-link">
+          <div class="card">
+            <h3>Misión y Visión</h3>
+            <p>Conoce nuestra filosofía, propósitos y metas como institución.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
   <footer>
     <p>© 2025 Vitalis I.P.S - Todos los derechos reservados</p>
   </footer>
 
 </body>
 </html>
+
 
