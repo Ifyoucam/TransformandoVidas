@@ -8,10 +8,26 @@
     body {
       margin: 0;
       font-family: "Segoe UI", Arial, sans-serif;
-      background-color: #fdf6f0;
+      background: linear-gradient(to bottom right, #eaf6f6, #fdf6f0);
       color: #333;
+      position: relative;
     }
 
+    /* === Marca de agua con el logo === */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("IMAGENES/logo.png") no-repeat center;
+      background-size: 300px;
+      opacity: 0.08;
+      z-index: -1;
+    }
+
+    /* ===== HEADER ===== */
     header {
       background-color: #a8dadc;
       position: sticky;
@@ -19,6 +35,7 @@
       z-index: 1000;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+
     nav {
       display: flex;
       justify-content: space-between;
@@ -27,8 +44,21 @@
       margin: auto;
       padding: 10px 20px;
     }
-    nav img { height: 50px; }
-    nav ul { display: flex; gap: 20px; list-style: none; }
+
+    nav img {
+      height: 50px;
+      display: block;
+      cursor: pointer;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
     nav ul li a {
       text-decoration: none;
       color: #1d3557;
@@ -37,206 +67,451 @@
       border-radius: 8px;
       transition: 0.25s;
     }
-    nav ul li a:hover { background-color: #f1faee; }
 
+    nav ul li a:hover {
+      background-color: #f1faee;
+    }
+
+    /* ===== HERO ===== */
     .hero {
-      background: linear-gradient(to right, #ffe5ec, #faf3e0);
       text-align: center;
       padding: 80px 20px;
     }
-    .hero img { width: 120px; margin-bottom: 20px; }
-    .hero h1 { font-size: 2.5em; color: #1d3557; margin: 10px 0; }
-    .hero p { max-width: 750px; margin: 0 auto 20px; line-height: 1.6; }
 
-    /* Sección servicios */
-    section.services {
-      max-width: 1200px;
-      margin: auto;
-      padding: 60px 20px;
+    .hero img {
+      width: 120px;
+      margin-bottom: 20px;
+      border-radius: 50%;
+      border: 3px solid #457b9d;
+      background-color: #fff;
+      padding: 8px;
     }
+
+    .hero h1 {
+      font-size: 2.5em;
+      color: #1d3557;
+      margin: 10px 0;
+    }
+
+    .hero p {
+      font-size: 1.1em;
+      max-width: 780px;
+      margin: 0 auto 20px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .hero .btn {
+      display: inline-block;
+      background-color: #457b9d;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .hero .btn:hover { background-color: #1d3557; }
+
+    /* ===== ABOUT ===== */
+    .about {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .about-card {
+      background-color: #fff;
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .about-card h2 {
+      margin-top: 0;
+      color: #1d3557;
+    }
+
+    /* ===== SERVICIOS ===== */
+    section.services {
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: 10px auto 60px;
+    }
+
     section.services h2 {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
       font-size: 2em;
       color: #1d3557;
     }
+
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
     }
+
+    a.card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      height: 100%;
+      border-radius: 15px;
+    }
+
     .card {
       background-color: #fff;
       padding: 22px;
       border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       text-align: center;
-      transition: 0.25s;
+      transition: transform 0.25s, box-shadow 0.25s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       cursor: pointer;
     }
+
     .card:hover {
       transform: translateY(-6px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.12);
     }
-    .card img {
-      width: 60px;
-      margin-bottom: 15px;
-    }
+
     .card h3 { color: #1d3557; margin: 8px 0 12px; }
+    .card p { color: #555; margin: 0 0 12px; flex: 1; }
+    .card .chev { margin-top: 14px; color: #457b9d; font-weight: 700; }
 
-    .card button {
-      background: #457b9d;
-      color: #fff;
-      border: none;
-      padding: 8px 15px;
-      border-radius: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 10px;
-      transition: 0.3s;
-    }
-    .card button:hover { background: #1d3557; }
-
-    /* ===== MODAL ===== */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 2000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.6);
-      justify-content: center;
-      align-items: center;
-    }
-    .modal-content {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 500px;
+    /* ===== CONTACTO ===== */
+    .contacto {
+      background-color: #ffe5ec;
+      border-radius: 15px;
+      padding: 30px;
       text-align: center;
-      position: relative;
-    }
-    .close {
-      position: absolute;
-      top: 8px;
-      right: 12px;
-      font-size: 22px;
-      cursor: pointer;
-      color: #333;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      max-width: 1000px;
+      margin: 0 auto 60px;
     }
 
+    .contacto p { margin: 6px 0; color: #333; }
+
+    /* ===== FOOTER ===== */
     footer {
       background-color: #a8dadc;
       text-align: center;
       padding: 20px;
-      margin-top: 50px;
+      margin-top: 10px;
       color: #1d3557;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero { padding: 40px 16px; }
+      .hero h1 { font-size: 1.8em; }
+      nav { padding: 8px 12px; }
+    }
+
+    /* ===== CHATBOT ===== */
+    #chatbot-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    #chatbot-button {
+      width: 60px;
+      height: 60px;
+      background-color: #457b9d;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      font-size: 24px;
+      transition: transform 0.3s;
+    }
+
+    #chatbot-button:hover {
+      transform: scale(1.1);
+      background-color: #1d3557;
+    }
+
+    #chatbot-window {
+      display: none;
+      position: absolute;
+      bottom: 80px;
+      right: 0;
+      width: 300px;
+      height: 400px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      overflow: hidden;
+      flex-direction: column;
+    }
+
+    #chatbot-header {
+      background-color: #a8dadc;
+      color: #1d3557;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    #chatbot-header img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: white;
+      margin-right: 8px;
+    }
+
+    #chatbot-header h3 {
+      margin: 0;
+      font-size: 16px;
+      flex-grow: 1;
+    }
+
+    #chatbot-close {
+      background: none;
+      border: none;
+      color: #1d3557;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    #chatbot-messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+
+    .bot-message, .user-message {
+      background: #f1f1f1;
+      padding: 8px 10px;
+      border-radius: 10px;
+      margin: 6px 0;
+      max-width: 80%;
+    }
+
+    .bot-message {
+      background: #e6f2ff;
+      align-self: flex-start;
+    }
+
+    .user-message {
+      background: #d1f5d3;
+      align-self: flex-end;
+      text-align: right;
+    }
+
+    #chatbot-input-area {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+
+    #chatbot-input {
+      flex: 1;
+      border: none;
+      padding: 10px;
+      outline: none;
+    }
+
+    #chatbot-send {
+      background-color: #457b9d;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <nav>
-    <img src="IMAGENES/logo.png" alt="Logo Vitalis I.P.S">
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="podcast.html">Podcast</a></li>
-      <li><a href="foro.html">Foros</a></li>
-      <li><a href="audiolibros.html">Audiolibros</a></li>
-      <li><a href="mision-vision.html">Misión y Visión</a></li>
-    </ul>
-  </nav>
-</header>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <nav>
+      <a href="index.html">
+        <img src="IMAGENES/headlogo.png" alt="Logo Vitalis I.P.S">
+      </a>
+      <ul>
+        <li><a href="podcast.html">Podcast</a></li>
+        <li><a href="foro.html">Foros</a></li>
+        <li><a href="audiolibros.html">Audiolibros</a></li>
+        <li><a href="mision-vision.html">Misión y Visión</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<section class="hero">
-  <img src="IMAGENES/logo.png" alt="Vitalis I.P.S">
-  <h1>Bienvenido a Vitalis I.P.S</h1>
-  <p>Un espacio de acompañamiento psicológico pensado para tu bienestar, crecimiento y equilibrio emocional.</p>
-</section>
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <img src="IMAGENES/logo.png" alt="Vitalis I.P.S">
+    <h1>Bienvenido a Vitalis I.P.S</h1>
+    <p>
+      Un espacio de acompañamiento psicológico pensado para tu bienestar, crecimiento y equilibrio emocional.
+      En Vitalis I.P.S ofrecemos recursos, acompañamiento y herramientas prácticas para fortalecer la salud mental.
+    </p>
+    <a href="mision-vision.html" class="btn">Conoce nuestra misión y visión</a>
+  </section>
 
-<!-- Servicios -->
-<section class="services">
-  <h2>Lo que ofrecemos</h2>
-  <div class="cards">
-    <div class="card" data-modal="modalPodcast">
-      <img src="IMAGENES/podcast.png" alt="Podcast">
-      <h3>Podcast</h3>
-      <p>Entrevistas y reflexiones sobre salud mental.</p>
-      <button>Ver más</button>
+  <!-- ===== ¿A QUÉ NOS DEDICAMOS? ===== -->
+  <div class="about">
+    <div class="about-card" aria-labelledby="about-title">
+      <h2 id="about-title">¿A qué nos dedicamos?</h2>
+      <p>
+        En <strong>Vitalis I.P.S</strong> brindamos apoyo psicológico integral: atención y orientación,
+        recursos educativos (podcasts y audiolibros), y espacios de comunidad (foros). 
+        Trabajamos con estrategias basadas en evidencia para manejo del estrés, ansiedad, 
+        promoción de la resiliencia y acompañamiento en procesos de crecimiento personal.
+      </p>
+      <p>
+        Ofrecemos servicios tanto presenciales como remotos, contenidos gratuitos para la comunidad
+        y espacios seguros para compartir y aprender.
+      </p>
     </div>
-    <div class="card" data-modal="modalForo">
-      <img src="IMAGENES/foro.png" alt="Foros">
-      <h3>Foros</h3>
-      <p>Espacios seguros para compartir experiencias.</p>
-      <button>Ver más</button>
+  </div>
+
+  <!-- ===== SERVICIOS ===== -->
+  <section class="services">
+    <h2>Lo que ofrecemos</h2>
+    <div class="cards">
+      <a href="podcast.html" class="card-link">
+        <div class="card">
+          <div>
+            <h3>Podcast</h3>
+            <p>Entrevistas, reflexiones y herramientas prácticas para el bienestar emocional.</p>
+          </div>
+          <div class="chev">Ir a Podcast →</div>
+        </div>
+      </a>
+
+      <a href="foro.html" class="card-link">
+        <div class="card">
+          <div>
+            <h3>Foros</h3>
+            <p>Espacios de diálogo y apoyo comunitario para compartir experiencias y dudas.</p>
+          </div>
+          <div class="chev">Ir a Foros →</div>
+        </div>
+      </a>
+
+      <a href="audiolibros.html" class="card-link">
+        <div class="card">
+          <div>
+            <h3>Audiolibros</h3>
+            <p>Audiocontenido pensado para acompañar procesos de aprendizaje y autoreflexión.</p>
+          </div>
+          <div class="chev">Ir a Audiolibros →</div>
+        </div>
+      </a>
     </div>
-    <div class="card" data-modal="modalAudiolibros">
-      <img src="IMAGENES/audiolibros.png" alt="Audiolibros">
-      <h3>Audiolibros</h3>
-      <p>Contenido para reflexionar y aprender.</p>
-      <button>Ver más</button>
+  </section>
+
+  <!-- ===== CONTACTO ===== -->
+  <section>
+    <h2 style="text-align:center; color:#1d3557;">Contáctanos</h2>
+    <div class="contacto">
+      <p><strong>Teléfono:</strong> +57 300 000 0000</p>
+      <p><strong>Email:</strong> contacto@vitalis.com</p>
+      <p><strong>Ubicación:</strong> Calle 123 #45-67, Bogotá, Colombia</p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>© 2025 Vitalis I.P.S - Todos los derechos reservados</p>
+  </footer>
+
+  <!-- ===== CHATBOT ===== -->
+  <div id="chatbot-container">
+    <div id="chatbot-button">💬</div>
+
+    <div id="chatbot-window">
+      <div id="chatbot-header">
+        <img id="chatbot-logo" src="IMAGENES/logo.png" alt="Vitalis I.P.S" />
+        <h3>Asistente Vitalis</h3>
+        <button id="chatbot-close">&times;</button>
+      </div>
+      <div id="chatbot-messages">
+        <div class="bot-message">
+          👋 ¡Hola! Soy el asistente de <b>Vitalis I.P.S</b>.<br>
+          Puedo acompañarte en temas relacionados con <b>ansiedad</b> y <b>estrés</b>.  
+          ¿Cómo te sientes hoy?
+        </div>
+      </div>
+      <div id="chatbot-input-area">
+        <input type="text" id="chatbot-input" placeholder="Escribe tu mensaje..." />
+        <button id="chatbot-send">Enviar</button>
+      </div>
     </div>
   </div>
-</section>
 
-<!-- Modales -->
-<div id="modalPodcast" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Podcast</h2>
-    <p>Explora charlas, entrevistas y episodios diseñados para ayudarte a entender y mejorar tu bienestar psicológico.</p>
-    <a href="podcast.html">Ir a la página de Podcast</a>
-  </div>
-</div>
+  <script>
+    const chatbotBtn = document.getElementById('chatbot-button');
+    const chatbotWindow = document.getElementById('chatbot-window');
+    const chatbotClose = document.getElementById('chatbot-close');
+    const chatbotSend = document.getElementById('chatbot-send');
+    const chatbotInput = document.getElementById('chatbot-input');
+    const chatbotMessages = document.getElementById('chatbot-messages');
 
-<div id="modalForo" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Foros</h2>
-    <p>Conéctate con otros usuarios, comparte tus experiencias y forma parte de una comunidad de apoyo mutuo.</p>
-    <a href="foro.html">Ir a la página de Foros</a>
-  </div>
-</div>
-
-<div id="modalAudiolibros" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Audiolibros</h2>
-    <p>Escucha contenido especializado que acompaña tus procesos de crecimiento y reflexión personal.</p>
-    <a href="audiolibros.html">Ir a la página de Audiolibros</a>
-  </div>
-</div>
-
-<footer>
-  <p>© 2025 Vitalis I.P.S - Todos los derechos reservados</p>
-</footer>
-
-<script>
-  // abrir modales
-  document.querySelectorAll('.card').forEach(card => {
-    card.querySelector('button').addEventListener('click', () => {
-      const modalId = card.getAttribute('data-modal');
-      document.getElementById(modalId).style.display = 'flex';
+    chatbotBtn.addEventListener('click', () => {
+      chatbotWindow.style.display = 'flex';
+      chatbotBtn.style.display = 'none';
     });
-  });
 
-  // cerrar modales
-  document.querySelectorAll('.close').forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.parentElement.parentElement.style.display = 'none';
+    chatbotClose.addEventListener('click', () => {
+      chatbotWindow.style.display = 'none';
+      chatbotBtn.style.display = 'flex';
     });
-  });
 
-  // cerrar al hacer click fuera
-  window.onclick = function(event) {
-    if (event.target.classList.contains('modal')) {
-      event.target.style.display = 'none';
+    chatbotSend.addEventListener('click', sendMessage);
+    chatbotInput.addEventListener('keypress', e => {
+      if (e.key === 'Enter') sendMessage();
+    });
+
+    function sendMessage() {
+      const text = chatbotInput.value.trim();
+      if (!text) return;
+      addMessage(text, 'user');
+      chatbotInput.value = '';
+      setTimeout(() => botReply(text), 600);
     }
-  }
-</script>
+
+    function addMessage(text, sender) {
+      const msg = document.createElement('div');
+      msg.classList.add(sender === 'bot' ? 'bot-message' : 'user-message');
+      msg.innerHTML = text;
+      chatbotMessages.appendChild(msg);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    function botReply(text) {
+      let reply = "";
+      const lower = text.toLowerCase();
+
+      if (lower.includes("ansiedad")) {
+        reply = "La ansiedad puede aparecer en momentos difíciles. Intenta respirar profundo, descansar y buscar apoyo si lo necesitas.";
+      } else if (lower.includes("estrés")) {
+        reply = "El estrés es común, pero si se prolonga puede afectar tu bienestar. Las pausas activas, el ejercicio suave y hablar con alguien de confianza pueden ayudarte.";
+      } else if (lower.includes("hola") || lower.includes("buenas")) {
+        reply = "¡Hola! ¿Cómo te sientes hoy respecto al estrés o la ansiedad?";
+      } else {
+        reply = "Puedo hablar contigo sobre ansiedad o estrés. Cuéntame, ¿qué situación te está preocupando?";
+      }
+
+      addMessage(reply, 'bot');
+    }
+  </script>
 
 </body>
 </html>
