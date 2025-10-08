@@ -1,84 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Página Principal – Transformando Vidas IPS</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transformando Vidas – Arte, Cultura y Bienestar</title>
   <style>
-    /* === ESTILOS GENERALES === */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: "Segoe UI", Arial, sans-serif;
-      background: url("imagenes/headlogo.png") no-repeat center center fixed;
-      background-size: 400px;
-      background-color: #f4fdfd;
+      background: #f9fafb;
       color: #333;
       overflow-x: hidden;
     }
 
+    /* === ENCABEZADO === */
     header {
+      background-color: #0289a1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 6%;
+      color: white;
       position: sticky;
       top: 0;
-      background: rgba(255, 255, 255, 0.9);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 5%;
-    }
-
-    /* === LOGO === */
-    .logo {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
     }
 
     .logo img {
       height: 60px;
-      transition: transform 0.3s ease;
+      cursor: pointer;
     }
 
-    .logo img:hover {
-      transform: scale(1.05);
-    }
-
-    /* === MENÚ DE NAVEGACIÓN === */
     nav ul {
       list-style: none;
       display: flex;
-      gap: 30px;
+      gap: 25px;
     }
 
     nav a {
+      color: white;
       text-decoration: none;
-      color: #007d80;
       font-weight: 600;
-      transition: color 0.3s;
+      transition: opacity 0.3s;
     }
 
-    nav a:hover {
-      color: #00b3b0;
-    }
+    nav a:hover { opacity: 0.7; }
 
-    /* === SLIDER AUTOMÁTICO === */
+    /* === SLIDER === */
     .slider {
       position: relative;
       width: 100%;
       height: 500px;
       overflow: hidden;
-      margin-top: 20px;
     }
 
     .slides {
       display: flex;
-      width: 500%;
+      width: 400%;
       animation: slide 20s infinite;
     }
 
@@ -86,72 +64,178 @@
       width: 100%;
       height: 500px;
       object-fit: cover;
+      filter: brightness(0.9);
     }
 
     @keyframes slide {
-      0% { transform: translateX(0); }
-      20% { transform: translateX(0); }
-      25% { transform: translateX(-100%); }
-      45% { transform: translateX(-100%); }
-      50% { transform: translateX(-200%); }
-      70% { transform: translateX(-200%); }
-      75% { transform: translateX(-300%); }
-      95% { transform: translateX(-300%); }
+      0%, 20% { transform: translateX(0); }
+      25%, 45% { transform: translateX(-100%); }
+      50%, 70% { transform: translateX(-200%); }
+      75%, 95% { transform: translateX(-300%); }
       100% { transform: translateX(0); }
     }
 
-    /* === SECCIÓN DE BIENVENIDA === */
-    .intro {
+    .slider-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
-      padding: 80px 10%;
-      background: rgba(255, 255, 255, 0.8);
-      margin-top: 20px;
-      border-radius: 20px;
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      color: white;
+      background: rgba(0,0,0,0.4);
+      padding: 30px 40px;
+      border-radius: 12px;
     }
 
-    .intro h1 {
-      color: #007d80;
-      margin-bottom: 15px;
-      font-size: 2.5em;
+    .slider-text h1 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+    }
+
+    /* === SECCIONES COLORIDAS === */
+    .sections {
+      display: flex;
+      text-align: center;
+    }
+
+    .section {
+      flex: 1;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2em;
+      padding: 40px 10px;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    .section:hover { opacity: 0.85; }
+
+    .rojo { background-color: #d75757; }
+    .amarillo { background-color: #e5b83c; }
+    .azul { background-color: #3ca0c7; }
+    .verde { background-color: #80b74d; }
+
+    /* === VIDEO Y DESCRIPCIÓN === */
+    .intro {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      background: #f2f7f7;
+      padding: 60px 20px;
+      gap: 40px;
+    }
+
+    .intro iframe {
+      width: 480px;
+      height: 270px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
     .intro p {
-      font-size: 1.2em;
-      color: #444;
+      max-width: 450px;
+      font-size: 1.1em;
+      color: #333;
       line-height: 1.6;
     }
 
-    footer {
+    /* === TESTIMONIOS === */
+    .testimonios {
+      background: white;
       text-align: center;
-      padding: 20px;
-      margin-top: 50px;
-      background: rgba(255, 255, 255, 0.9);
-      font-size: 0.9em;
-      color: #555;
+      padding: 70px 20px;
     }
 
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        gap: 15px;
-        background: white;
-        position: absolute;
-        top: 80px;
-        right: 5%;
-        padding: 15px;
-        border-radius: 10px;
-        display: none;
-      }
+    .testimonios h2 { color: #007b85; margin-bottom: 25px; }
+
+    .citas {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
     }
+
+    .cita {
+      background: #f2f2f2;
+      border-radius: 20px;
+      padding: 20px 30px;
+      max-width: 400px;
+      text-align: left;
+      position: relative;
+    }
+
+    .cita::before {
+      content: "“";
+      font-size: 50px;
+      color: #ccc;
+      position: absolute;
+      left: 15px;
+      top: -10px;
+    }
+
+    .nombre {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #007b85;
+    }
+
+    /* === NOTICIAS === */
+    .noticias {
+      padding: 60px 20px;
+      text-align: center;
+      background: #f9fafb;
+    }
+
+    .noticias h2 { color: #007b85; margin-bottom: 20px; }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      width: 280px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover { transform: scale(1.03); }
+
+    .card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+    }
+
+    .card p {
+      padding: 15px;
+      color: #333;
+      font-weight: 500;
+    }
+
+    /* === FOOTER === */
+    footer {
+      background-color: #0289a1;
+      color: white;
+      padding: 40px 8%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    footer div { margin-bottom: 20px; }
+    footer a { color: white; text-decoration: none; }
   </style>
 </head>
 <body>
 
-  <!-- === HEADER === -->
+  <!-- HEADER -->
   <header>
     <div class="logo" onclick="location.href='index.html'">
       <img src="imagenes/headlogo.png" alt="Logo Transformando Vidas" />
@@ -159,38 +243,96 @@
     <nav>
       <ul>
         <li><a href="#">Inicio</a></li>
-        <li><a href="#">Nosotros</a></li>
-        <li><a href="#">Servicios</a></li>
+        <li><a href="#">Conócenos</a></li>
+        <li><a href="#">Así trabajamos</a></li>
         <li><a href="#">Programas</a></li>
-        <li><a href="#">Contacto</a></li>
+        <li><a href="#">Contáctanos</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- === SLIDER === -->
+  <!-- SLIDER -->
   <section class="slider">
     <div class="slides">
-      <img src="imagenes/slide1.jpg" alt="Imagen 1">
-      <img src="imagenes/slide2.jpg" alt="Imagen 2">
-      <img src="imagenes/slide3.jpg" alt="Imagen 3">
-      <img src="imagenes/slide4.jpg" alt="Imagen 4">
+      <img src="imagenes/slide1.jpg" alt="">
+      <img src="imagenes/slide2.jpg" alt="">
+      <img src="imagenes/slide3.jpg" alt="">
+      <img src="imagenes/slide4.jpg" alt="">
+    </div>
+    <div class="slider-text">
+      <h1>Transformando Vidas</h1>
+      <p>Arte, cultura y deporte al servicio del bienestar juvenil y la convivencia.</p>
     </div>
   </section>
 
-  <!-- === INTRODUCCIÓN === -->
+  <!-- SECCIONES COLORIDAS -->
+  <div class="sections">
+    <div class="section rojo">CONÓCENOS</div>
+    <div class="section amarillo">ASÍ TRABAJAMOS</div>
+    <div class="section azul">¿CÓMO AYUDAR?</div>
+    <div class="section verde">CONTÁCTANOS</div>
+  </div>
+
+  <!-- VIDEO Y DESCRIPCIÓN -->
   <section class="intro">
-    <h1>Bienvenidos a Transformando Vidas IPS</h1>
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video Transformando Vidas" allowfullscreen></iframe>
     <p>
-      En Transformando Vidas, trabajamos por el bienestar integral de nuestros usuarios,
-      brindando atención profesional y humana en salud mental, emocional y social.
-      Nuestro compromiso es acompañarte en cada paso hacia una vida más plena.
+      Somos un programa psicosocial dedicado a fortalecer la salud mental de adolescentes mediante estrategias basadas en el arte, la cultura y el deporte. Creemos en el poder de la creatividad para construir comunidades más seguras, empáticas y resilientes.
     </p>
   </section>
 
-  <!-- === FOOTER === -->
-  <footer>
-    &copy; 2025 Transformando Vidas I.P.S – Todos los derechos reservados.
-  </footer>
+  <!-- TESTIMONIOS -->
+  <section class="testimonios">
+    <h2>Testimonios</h2>
+    <div class="citas">
+      <div class="cita">
+        “Gracias a Transformando Vidas aprendí a canalizar mis emociones a través del arte y descubrí talentos que no conocía.”
+        <p class="nombre">– Laura Martínez</p>
+      </div>
+      <div class="cita">
+        “El proyecto me ayudó a creer en mí mismo y a construir un nuevo propósito lejos de la violencia.”
+        <p class="nombre">– Kevin Ríos</p>
+      </div>
+    </div>
+  </section>
 
+  <!-- NOTICIAS -->
+  <section class="noticias">
+    <h2>Noticias</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="imagenes/noticia1.jpg" alt="">
+        <p>Jóvenes de El Pozón presentan su galería artística comunitaria</p>
+      </div>
+      <div class="card">
+        <img src="imagenes/noticia2.jpg" alt="">
+        <p>Taller de teatro fortalece habilidades sociales y autoestima</p>
+      </div>
+      <div class="card">
+        <img src="imagenes/noticia3.jpg" alt="">
+        <p>Encuentro deportivo: unión, respeto y bienestar emocional</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <img src="imagenes/headlogo.png" alt="Logo" style="height:60px;"><br>
+      <p>Cartagena de Indias<br>
+      Fundación Universitaria Tecnológico Comfenalco<br>
+      Tel: (5) 6502399 ext. 3104</p>
+    </div>
+
+    <div>
+      <h4>Enlaces</h4>
+      <p><a href="#">Inicio</a><br><a href="#">Conócenos</a><br><a href="#">Programas</a></p>
+    </div>
+
+    <div>
+      <h4>Redes</h4>
+      <p>📘 Facebook<br>📷 Instagram<br>▶ YouTube</p>
+    </div>
+  </footer>
 </body>
 </html>
