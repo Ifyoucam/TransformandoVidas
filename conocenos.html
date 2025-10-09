@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conócenos – Transformando Vidas</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border; }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f9fafb;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* === ENCABEZADO === */
+    header {
+      background-color: #0289a1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 6%;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo img { height: 60px; cursor: pointer; }
+    nav ul { list-style: none; display: flex; gap: 25px; }
+    nav a { color: white; text-decoration: none; font-weight: 600; transition: opacity 0.3s; }
+    nav a:hover { opacity: 0.7; }
+
+    /* === SECCIÓN PRINCIPAL === */
+    .hero {
+      background: linear-gradient(rgba(2,137,161,0.4), rgba(2,137,161,0.4)), url("imagenes/slide1.jpg") center/cover no-repeat;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+    .hero h1 { font-size: 2.5em; }
+
+    .content {
+      max-width: 1100px;
+      margin: 60px auto;
+      background: white;
+      padding: 40px 50px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .content h2 {
+      color: #007b85;
+      margin-bottom: 15px;
+      font-size: 1.8em;
+    }
+
+    .content p {
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    .values {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .value {
+      background: #f2f7f7;
+      padding: 20px 25px;
+      border-radius: 15px;
+      flex: 1 1 220px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .value h3 {
+      color: #0289a1;
+      margin-bottom: 10px;
+    }
+
+    /* === FOOTER === */
+    footer {
+      background-color: #0289a1;
+      color: white;
+      padding: 40px 8%;
+      display: flex;
+      flex-wrap: wrap;
+      justify: space-between;
+      margin-top: 60px;
+    }
+
+    footer div { margin-bottom: 20px; }
+    footer a { color: white; text-decoration: none; }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo" onclick="location.href='index.html'">
+      <img src="imagenes/headlogo.png" alt="Logo Transformando Vidas" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="conocenos.html">Conócenos</a></li>
+        <li><a href="contactos.html">Contactos</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+      </ul</>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Conócenos</h1>
+  </section>
+
+  <!-- CONTENIDO -->
+  <section class="content">
+    <h2>¿Quiénes Somos?</h2>
+    <p>
+      <b>Transformando Vidas</b> es una iniciativa social y psicosocial que busca fortalecer la salud mental, la convivencia y la resiliencia de los jóvenes del barrio El Pozón en Cartagena.
+      A través de estrategias basadas en el arte, la cultura y el deporte, el proyecto promueve la expresión emocional, la creatividad y el trabajo en equipo.
+    </p>
+
+    <h2>Misión</h2>
+    <p>
+      Brindar herramientas psicosociales a adolescentes y familias mediante programas artísticos y deportivos que fomenten la salud emocional, la prevención del pandillismo y la construcción de comunidades más empáticas.
+    </p>
+
+    <h2>Visión</h2>
+    <p>
+      Ser un referente en la promoción de salud mental y desarrollo juvenil, integrando el arte, la cultura y el deporte como medios para la transformación social y la sana convivencia.
+    </p>
+
+    <h2>Valores</h2>
+    <div class="values">
+      <div class="value">
+        <h3>Empatía</h3>
+        <p>Comprendemos las emociones y necesidades de cada joven, promoviendo la solidaridad y el respeto mutuo.</p>
+      </div>
+      <div class="value">
+        <h3>Creatividad</h3>
+        <p>Utilizamos el arte como una forma de expresión libre y sanadora, que potencia el talento y la innovación.</p>
+      </div>
+      <div .="value">
+        <h3>Compromiso</h3>
+        <p>Trabajamos en conjunto con la comunidad para lograr cambios reales, duraderos y positivos.</p>
+      </div>
+      <div class="value">
+        <h3>Resiliencia</h3>
+        <p>Promovemos la capacidad de superar las adversidades y transformar las dificultades en oportunidades.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <img src="imagenes/headlogo.png" alt="Logo" style="height:60px;"><br>
+      <p>Cartagena de Indias<br>
+      Fundación Universitaria Tecnológico Comfenalco<br>
+      Tel: (5) 6502399 ext. 3104</p>
+    </div>
+
+    <div>
+      <h4>Enlaces</h4>
+      <p><a href="index.html">Inicio</a><br><a href="conocenos.html">Conócenos</a><br><a href="servicios.html">Servicios</a></p>
+    </div>
+
+    <div>
+      <h4>Redes</h4>
+      <p>📘 Facebook<br>📷 Instagram<br>▶ YouTube</p>
+    </div>
+  </footer>
+
+</body>
+</html>
