@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contactos – Transformando Vidas</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f9fafb;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* === ENCABEZADO === */
+    header {
+      background-color: #0289a1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 6%;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo img { height: 60px; cursor: pointer; }
+    nav ul { list-style: none; display: flex; gap: 25px; }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.3s;
+    }
+    nav a:hover { opacity: 0.7; }
+
+    /* === HERO === */
+    .hero {
+      background: linear-gradient(rgba(2,137,161,0.4), rgba(2,137,161,0.4)),
+                  url("imagenes/slide3.jpg") center/cover no-repeat;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+    .hero h1 { font-size: 2.5em; }
+
+    /* === CONTENIDO === */
+    .content {
+      max-width: 1100px;
+      margin: 60px auto;
+      background: white;
+      padding: 40px 50px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .content h2 {
+      color: #007b85;
+      margin-bottom: 15px;
+      font-size: 1.8em;
+      text-align: center;
+    }
+
+    .content p {
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 25px;
+      text-align: center;
+      font-size: 1.1em;
+    }
+
+    /* === FORMULARIO === */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      transition: border 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border: 1px solid #0289a1;
+      outline: none;
+    }
+
+    textarea { resize: none; height: 130px; }
+
+    button {
+      background-color: #0289a1;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 1em;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-weight: 600;
+    }
+
+    button:hover { background-color: #007b85; }
+
+    /* === INFO CONTACTO === */
+    .info-contacto {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 30px;
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .info-box {
+      flex: 1 1 280px;
+      background: #f2f7f7;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .info-box h3 {
+      color: #0289a1;
+      margin-bottom: 10px;
+    }
+
+    /* === MAPA === */
+    .mapa {
+      margin-top: 60px;
+      text-align: center;
+    }
+    iframe {
+      width: 100%;
+      max-width: 700px;
+      height: 350px;
+      border-radius: 15px;
+      border: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* === FOOTER === */
+    footer {
+      background-color: #0289a1;
+      color: white;
+      padding: 40px 8%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 60px;
+    }
+    footer div { margin-bottom: 20px; }
+    footer a { color: white; text-decoration: none; }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo" onclick="location.href='index.html'">
+      <img src="imagenes/headlogo.png" alt="Logo Transformando Vidas" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="conocenos.html">Conócenos</a></li>
+        <li><a href="contactos.html">Contactos</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="journaling.html">Journaling</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Contáctanos</h1>
+  </section>
+
+  <!-- CONTENIDO -->
+  <section class="content">
+    <h2>Queremos escucharte</h2>
+    <p>
+      Si tienes preguntas, deseas colaborar o simplemente quieres conocer más sobre nuestros programas,
+      puedes escribirnos a través del siguiente formulario o comunicarte con nosotros directamente.
+    </p>
+
+    <!-- FORMULARIO -->
+    <form>
+      <input type="text" placeholder="Nombre completo" required>
+      <input type="email" placeholder="Correo electrónico" required>
+      <input type="text" placeholder="Asunto" required>
+      <textarea placeholder="Escribe tu mensaje..." required></textarea>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+
+    <!-- INFORMACIÓN DE CONTACTO -->
+    <div class="info-contacto">
+      <div class="info-box">
+        <h3>📍 Dirección</h3>
+        <p>Barrio El Pozón, Cartagena de Indias<br>Bolívar, Colombia</p>
+      </div>
+      <div class="info-box">
+        <h3>📞 Teléfono</h3>
+        <p>(5) 6502399 ext. 3104<br>+57 301 555 0010</p>
+      </div>
+      <div class="info-box">
+        <h3>✉️ Correo</h3>
+        <p>transformandovidas@comfenalco.edu.co</p>
+      </div>
+    </div>
+
+    <!-- MAPA -->
+    <div class="mapa">
+      <h2 style="margin-bottom: 20px;">Ubicación</h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.342084554678!2d-75.4787!3d10.3762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef6210f8a2e15db%3A0x8e406b6ee8d92de7!2sEl%20Poz%C3%B3n%2C%20Cartagena%2C%20Bol%C3%ADvar!5e0!3m2!1ses!2sco!4v1697303123456!5m2!1ses!2sco"
+        allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <img src="imagenes/headlogo.png" alt="Logo" style="height:60px;"><br>
+      <p>Cartagena de Indias<br>
+      Fundación Universitaria Tecnológico Comfenalco<br>
+      Tel: (5) 6502399 ext. 3104</p>
+    </div>
+
+    <div>
+      <h4>Enlaces</h4>
+      <p><a href="index.html">Inicio</a><br><a href="conocenos.html">Conócenos</a><br><a href="servicios.html">Servicios</a><br><a href="journaling.html">Journaling</a></p>
+    </div>
+
+    <div>
+      <h4>Redes</h4>
+      <p>📘 Facebook<br>📷 Instagram<br>▶ YouTube</p>
+    </div>
+  </footer>
+
+</body>
+</html>
