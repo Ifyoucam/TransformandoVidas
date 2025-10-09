@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios – Transformando Vidas</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f9fafb;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* === ENCABEZADO === */
+    header {
+      background-color: #0289a1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 6%;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo img { height: 60px; cursor: pointer; }
+    nav ul { list-style: none; display: flex; gap: 25px; }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.3s;
+    }
+    nav a:hover { opacity: 0.7; }
+
+    /* === HERO === */
+    .hero {
+      background: linear-gradient(rgba(2,137,161,0.4), rgba(2,137,161,0.4)),
+                  url("imagenes/slide2.jpg") center/cover no-repeat;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+    .hero h1 { font-size: 2.5em; }
+
+    /* === CONTENIDO === */
+    .content {
+      max-width: 1100px;
+      margin: 60px auto;
+      background: white;
+      padding: 40px 50px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .content h2 {
+      color: #007b85;
+      margin-bottom: 15px;
+      font-size: 1.8em;
+      text-align: center;
+    }
+
+    .content p {
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 25px;
+      text-align: center;
+      font-size: 1.1em;
+    }
+
+    /* === SECCIONES DE SERVICIOS === */
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .service {
+      background: #f2f7f7;
+      border-radius: 20px;
+      padding: 25px;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+      background: #e0f7f7;
+    }
+
+    .service img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .service h3 {
+      color: #0289a1;
+      margin-bottom: 10px;
+    }
+
+    .service p {
+      font-size: 0.95em;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    /* === FOOTER === */
+    footer {
+      background-color: #0289a1;
+      color: white;
+      padding: 40px 8%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 60px;
+    }
+    footer div { margin-bottom: 20px; }
+    footer a { color: white; text-decoration: none; }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo" onclick="location.href='index.html'">
+      <img src="IMAGENES/headlogo.png" alt="Logo Transformando Vidas" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="conocenos.html">Conócenos</a></li>
+        <li><a href="contactos.html">Contactos</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="journaling.html">Journaling</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Nuestros Servicios</h1>
+  </section>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <section class="content">
+    <h2>Programas y Estrategias de Transformación</h2>
+    <p>
+      En <b>Transformando Vidas</b> desarrollamos espacios creativos, educativos y deportivos
+      que fortalecen la salud mental, la convivencia y el bienestar emocional de adolescentes y sus familias.
+      Cada programa está diseñado con un enfoque humano, psicosocial y comunitario.
+    </p>
+
+    <div class="services">
+      <div class="service">
+        <img src="imagenes/arte.jpg" alt="Arte Terapia">
+        <h3>Arte y Expresión</h3>
+        <p>
+          Talleres de pintura, dibujo, collage y escultura que permiten la expresión emocional,
+          el autoconocimiento y el fortalecimiento de la autoestima.
+        </p>
+      </div>
+
+      <div class="service">
+        <img src="imagenes/cultura.jpg" alt="Cultura Comunitaria">
+        <h3>Cultura y Comunidad</h3>
+        <p>
+          Actividades de danza, música y teatro que fomentan la identidad cultural,
+          el trabajo en equipo y el respeto por la diversidad.
+        </p>
+      </div>
+
+      <div class="service">
+        <img src="imagenes/deporte.jpg" alt="Deporte y Bienestar">
+        <h3>Deporte y Bienestar</h3>
+        <p>
+          Espacios deportivos orientados al desarrollo físico y mental, promoviendo la disciplina,
+          la cooperación y la resolución pacífica de conflictos.
+        </p>
+      </div>
+
+      <div class="service">
+        <img src="imagenes/psicologia.jpg" alt="Atención Psicológica">
+        <h3>Acompañamiento Psicológico</h3>
+        <p>
+          Intervenciones individuales y grupales enfocadas en la regulación emocional,
+          manejo del estrés y fortalecimiento de vínculos familiares.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <img src="imagenes/headlogo.png" alt="Logo" style="height:60px;"><br>
+      <p>Cartagena de Indias<br>
+      Fundación Universitaria Tecnológico Comfenalco<br>
+      Tel: (5) 6502399 ext. 3104</p>
+    </div>
+
+    <div>
+      <h4>Enlaces</h4>
+      <p><a href="index.html">Inicio</a><br><a href="conocenos.html">Conócenos</a><br><a href="servicios.html">Servicios</a><br><a href="journaling.html">Journaling</a></p>
+    </div>
+
+    <div>
+      <h4>Redes</h4>
+      <p>📘 Facebook<br>📷 Instagram<br>▶ YouTube</p>
+    </div>
+  </footer>
+
+</body>
+</html>
+	
