@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journaling – Escribiendo mi propia historia</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f9fafb;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* === ENCABEZADO === */
+    header {
+      background-color: #0289a1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 6%;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo img { height: 60px; cursor: pointer; }
+    nav ul { list-style: none; display: flex; gap: 25px; }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.3s;
+    }
+    nav a:hover { opacity: 0.7; }
+
+    /* === HERO === */
+    .hero {
+      background: linear-gradient(rgba(2,137,161,0.4), rgba(2,137,161,0.4)),
+                  url("imagenes/slide5.jpg") center/cover no-repeat;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+    .hero h1 { font-size: 2.5em; }
+
+    /* === CONTENIDO === */
+    .content {
+      max-width: 1100px;
+      margin: 60px auto;
+      background: white;
+      padding: 40px 50px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .content h2 {
+      color: #007b85;
+      margin-bottom: 15px;
+      font-size: 1.8em;
+    }
+
+    .content p {
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 25px;
+      font-size: 1.1em;
+    }
+
+    /* === BENEFICIOS === */
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .benefit {
+      background: #f2f7f7;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .benefit:hover { transform: translateY(-5px); }
+    .benefit h3 { color: #0289a1; margin-bottom: 10px; }
+
+    /* === TIPOS === */
+    .tipos {
+      background: #e7f7f7;
+      padding: 40px;
+      border-radius: 15px;
+      margin-top: 50px;
+    }
+
+    .tipos h2 { color: #0289a1; margin-bottom: 20px; }
+    .tipos ul { list-style: none; }
+    .tipos li {
+      margin-bottom: 15px;
+      font-size: 1.05em;
+      color: #444;
+    }
+
+    /* === GUÍA CREATIVA === */
+    .guia {
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .guia h2 {
+      color: #007b85;
+      margin-bottom: 20px;
+    }
+
+    .guia p {
+      max-width: 700px;
+      margin: 0 auto 25px;
+      line-height: 1.7;
+    }
+
+    .tips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .tip {
+      background: #f2f7f7;
+      padding: 25px;
+      border-radius: 15px;
+      width: 260px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .tip:hover { transform: translateY(-5px); }
+    .tip h4 { color: #0289a1; margin-bottom: 10px; }
+
+    /* === FOOTER === */
+    footer {
+      background-color: #0289a1;
+      color: white;
+      padding: 40px 8%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 60px;
+    }
+    footer div { margin-bottom: 20px; }
+    footer a { color: white; text-decoration: none; }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo" onclick="location.href='index.html'">
+      <img src="imagenes/headlogo.png" alt="Logo Transformando Vidas" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="conocenos.html">Conócenos</a></li>
+        <li><a href="contactos.html">Contactos</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Journaling: Escribiendo mi propia historia</h1>
+  </section>
+
+  <!-- CONTENIDO -->
+  <section class="content">
+    <h2>¿Qué es el Journaling?</h2>
+    <p>
+      El <b>journaling</b> es la práctica de escribir regularmente sobre tus pensamientos, emociones, metas y experiencias.
+      Es una herramienta poderosa para mejorar la autoconciencia, reducir el estrés y organizar la mente. 
+      No tiene reglas fijas: puedes hacerlo en papel, en tu celular o incluso con recortes y dibujos.
+    </p>
+
+    <h2>Beneficios</h2>
+    <div class="benefits">
+      <div class="benefit">
+        <h3>Autoconocimiento</h3>
+        <p>Te ayuda a explorar y comprender tus emociones, miedos, deseos y objetivos personales.</p>
+      </div>
+      <div class="benefit">
+        <h3>Claridad mental</h3>
+        <p>Facilita la organización de ideas y la resolución de problemas al plasmar lo que pasa por tu mente.</p>
+      </div>
+      <div class="benefit">
+        <h3>Gestión del estrés</h3>
+        <p>Escribir libera tensiones y te permite desahogarte, reduciendo la carga emocional.</p>
+      </div>
+      <div class="benefit">
+        <h3>Registro de progreso</h3>
+        <p>Permite ver tu evolución, tus avances y los logros alcanzados con el tiempo.</p>
+      </div>
+      <div class="benefit">
+        <h3>Creatividad</h3>
+        <p>Un espacio para expresarte libremente con palabras, colores, dibujos o fotografías.</p>
+      </div>
+    </div>
+
+    <div class="tipos">
+      <h2>Tipos y métodos</h2>
+      <ul>
+        <li><b>Bullet Journal:</b> un método de mindfulness disfrazado de productividad. Te ayuda a enfocarte en el presente mientras organizas tus metas.</li>
+        <li><b>Scrapbook Journal:</b> la versión más creativa. Puedes pegar fotografías, recortes, stickers o recuerdos.</li>
+        <li><b>Journaling reflexivo:</b> centrado en escribir tus emociones, pensamientos o frases inspiradoras del día.</li>
+      </ul>
+    </div>
+
+    <div class="guia">
+      <h2>Guía creativa para empezar</h2>
+      <p>
+        No te preocupes por los errores: en el mundo del journaling, la ortografía y la puntuación pasan a un segundo plano.
+        Lo importante es dejar fluir tus emociones y disfrutar del proceso.
+      </p>
+
+      <div class="tips">
+        <div class="tip">
+          <h4>🎨 Crea tu portada</h4>
+          <p>Píntala, dibújala o decórala con recortes, fotos, frases o stickers. ¡Hazla tuya!</p>
+        </div>
+        <div class="tip">
+          <h4>🧠 Rueda de emociones</h4>
+          <p>Registra cómo te sientes cada día con colores o símbolos. Te ayudará a reconocer patrones emocionales.</p>
+        </div>
+        <div class="tip">
+          <h4>✍️ Escribe sin filtros</h4>
+          <p>Deja que las palabras fluyan sin juzgarte. Es tu espacio seguro.</p>
+        </div>
+        <div class="tip">
+          <h4>💌 Cartas o poemas</h4>
+          <p>Exprésate escribiendo cartas (a ti mismo o a otros), frases o poemas inspiradores.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <img src="imagenes/headlogo.png" alt="Logo" style="height:60px;"><br>
+      <p>Cartagena de Indias<br>
+      Fundación Universitaria Tecnológico Comfenalco<br>
+      Tel: (5) 6502399 ext. 3104</p>
+    </div>
+
+    <div>
+      <h4>Enlaces</h4>
+      <p><a href="index.html">Inicio</a><br><a href="conocenos.html">Conócenos</a><br><a href="servicios.html">Servicios</a><br><a href="journaling.html">Journaling</a></p>
+    </div>
+
+    <div>
+      <h4>Redes</h4>
+      <p>📘 Facebook<br>📷 Instagram<br>▶ YouTube</p>
+    </div>
+  </footer>
+
+</body>
+</html>
