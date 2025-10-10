@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Conócenos – Transformando Vidas</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: "Segoe UI", Arial, sans-serif;
       background: #f9fafb;
@@ -25,6 +25,7 @@
       top: 0;
       z-index: 1000;
     }
+
     .logo img { height: 60px; cursor: pointer; }
     nav ul { list-style: none; display: flex; gap: 25px; }
     nav a { color: white; text-decoration: none; font-weight: 600; transition: opacity 0.3s; }
@@ -32,7 +33,9 @@
 
     /* === SECCIÓN PRINCIPAL === */
     .hero {
-      background: linear-gradient(rgba(2,137,161,0.4), rgba(2,137,161,0.4)), url("imagenes/slide1.jpg") center/cover no-repeat;
+      background:
+        linear-gradient(rgba(2,137,161,0.4), rgba(2,137,161,0.4)),
+        url("IMAGENES/conocenos.jpeg") center/cover no-repeat;
       height: 300px;
       display: flex;
       justify-content: center;
@@ -40,7 +43,11 @@
       color: white;
       text-align: center;
     }
-    .hero h1 { font-size: 2.5em; }
+
+    .hero h1 {
+      font-size: 2.5em;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
 
     .content {
       max-width: 1100px;
@@ -79,6 +86,7 @@
       text-align: center;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
+
     .value h3 {
       color: #0289a1;
       margin-bottom: 10px;
@@ -91,7 +99,7 @@
       padding: 40px 8%;
       display: flex;
       flex-wrap: wrap;
-      justify: space-between;
+      justify-content: space-between;
       margin-top: 60px;
     }
 
@@ -114,7 +122,7 @@
         <li><a href="servicios.html">Servicios</a></li>
         <li><a href="galeria.html">Galería</a></li>
         <li><a href="journalig.html">Journalig</a></li>
-      </ul</>
+      </ul>
     </nav>
   </header>
 
@@ -133,12 +141,12 @@
 
     <h2>Misión</h2>
     <p>
-      Brindar herramientas psicosociales a adolescentes y familias mediante programas artísticos y deportivos que fomenten la salud emocional, la prevención del pandillismo y la construcción de comunidades más empáticas.
+     La implementación de estrategias innovadoras orientadas a la promoción, prevención y mantenimiento de la salud mental.
     </p>
 
     <h2>Visión</h2>
     <p>
-      Ser un referente en la promoción de salud mental y desarrollo juvenil, integrando el arte, la cultura y el deporte como medios para la transformación social y la sana convivencia.
+      Ser un referente en Latinoamérica en la instauración de proyectos comunitarios que transforman la vida de los jóvenes en riesgo, consolidando espacios de inclusión y esperanza donde el arte y la cultura sean motores de cambio social.  
     </p>
 
     <h2>Valores</h2>
@@ -151,7 +159,7 @@
         <h3>Creatividad</h3>
         <p>Utilizamos el arte como una forma de expresión libre y sanadora, que potencia el talento y la innovación.</p>
       </div>
-      <div .="value">
+      <div class="value">
         <h3>Compromiso</h3>
         <p>Trabajamos en conjunto con la comunidad para lograr cambios reales, duraderos y positivos.</p>
       </div>
@@ -165,7 +173,7 @@
   <!-- FOOTER -->
   <footer>
     <div>
-      <img src="imagenes/headlogo.png" alt="Logo" style="height:60px;"><br>
+      <img src="IMAGENES/headlogo.png" alt="Logo" style="height:60px;"><br>
       <p>Cartagena de Indias<br>
       Fundación Universitaria Tecnológico Comfenalco<br>
       Tel: (5) 6502399 ext. 3104</p>
