@@ -55,11 +55,10 @@
       overflow: hidden;
     }
 
-    
     .slides {
       display: flex;
       width: 400%; /* 4 imágenes */
-      animation: slide 40s infinite linear; /* 4 imágenes x 10s */
+      animation: slide 60s infinite linear; /* 4 imágenes x 10s */
     }
 
     .slides img {
@@ -70,16 +69,12 @@
     }
 
     @keyframes slide {
-      0% { transform: translateX(0); }
-      20% { transform: translateX(0); }        /* Imagen 1 (0-20%) */
-      25% { transform: translateX(-100%); }
-      45% { transform: translateX(-100%); }    /* Imagen 2 (25-45%) */
-      50% { transform: translateX(-200%); }
-      70% { transform: translateX(-200%); }    /* Imagen 3 (50-70%) */
-      75% { transform: translateX(-300%); }
-      95% { transform: translateX(-300%); }    /* Imagen 4 (75-95%) */
-      100% { transform: translateX(0); }       /* Regresa sin blanco */
-     }
+      0% { transform: translateX(0); }          /* Imagen 1 */
+      25% { transform: translateX(-100%); }     /* Imagen 2 */
+      50% { transform: translateX(-200%); }     /* Imagen 3 */
+      75% { transform: translateX(-300%); }     /* Imagen 4 */
+      100% { transform: translateX(-300%); }    /* Se queda en la cuarta */
+    }
 
     .slider-text {
       position: absolute;
@@ -341,6 +336,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
