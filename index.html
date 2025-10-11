@@ -47,50 +47,40 @@
     nav a:hover { opacity: 0.7; }
 
     /* === SLIDER === */
-
     .slider {
       position: relative;
       width: 100%;
       height: 500px;
       overflow: hidden;
+
+      /* 🔹 Fondo con el logo cuando llega al final */
+      background: url('IMAGENES/fondo.png') center center no-repeat;
+      background-size: contain;
+      background-color: #f9fafb; /* color base del fondo */
     }
 
     .slides {
       display: flex;
-      width: 400%; /* 4 imágenes */
-      animation: slide 60s infinite linear; /* 4 imágenes x 10s */
+      width: 600%; /* un poco más que 500% para evitar el vacío */
+      animation: slide 70s infinite ease-in-out;
     }
 
     .slides img {
-      width: 100%;
+      width: 20%; /* 100 / 5 imágenes = 20% */
       height: 500px;
       object-fit: cover;
       filter: brightness(0.9);
     }
 
+    /* Animación: avanza → pausa → regresa → pausa */
     @keyframes slide {
-      0% { transform: translateX(0); }          /* Imagen 1 */
-      25% { transform: translateX(-100%); }     /* Imagen 2 */
-      50% { transform: translateX(-200%); }     /* Imagen 3 */
-      75% { transform: translateX(-300%); }     /* Imagen 4 */
-      100% { transform: translateX(-300%); }    /* Se queda en la cuarta */
-    }
-
-    .slider-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: white;
-      background: rgba(0,0,0,0.4);
-      padding: 30px 40px;
-      border-radius: 12px;
-    }
-
-    .slider-text h1 {
-      font-size: 2.2em;
-      margin-bottom: 10px;
+      0%   { transform: translateX(0); }          /* Imagen 1 */
+      20%  { transform: translateX(-100%); }      /* Imagen 2 */
+      40%  { transform: translateX(-200%); }      /* Imagen 3 */
+      60%  { transform: translateX(-300%); }      /* Imagen 4 */
+      70%  { transform: translateX(-400%); }      /* Imagen 5 */
+      80%  { transform: translateX(-400%); }      /* 🔹 pausa 10 s en la 5 */
+      100% { transform: translateX(0); }          /* 🔹 regreso suave */
     }
 
     /* === SECCIONES COLORIDAS === */
@@ -338,23 +328,3 @@
   </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
