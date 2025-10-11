@@ -46,42 +46,73 @@
 
     nav a:hover { opacity: 0.7; }
 
-    /* === SLIDER === */
-    .slider {
-      position: relative;
-      width: 100%;
-      height: 500px;
-      overflow: hidden;
+   /* === SLIDER === */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
 
-      /* 🔹 Fondo con el logo cuando llega al final */
-      background: url('IMAGENES/fondo.png') center center no-repeat;
-      background-size: contain;
-      background-color: #f9fafb; /* color base del fondo */
-    }
+  /* 🔹 Fondo con el logo cuando llega al final */
+  background: url('IMAGENES/fondo.png') center center no-repeat;
+  background-size: contain;
+  background-color: #f9fafb;
+}
 
-    .slides {
-      display: flex;
-      width: 600%; /* un poco más que 500% para evitar el vacío */
-      animation: slide 70s infinite ease-in-out;
-    }
+.slides {
+  display: flex;
+  width: 600%;
+  animation: slide 70s infinite ease-in-out;
+}
 
-    .slides img {
-      width: 20%; /* 100 / 5 imágenes = 20% */
-      height: 500px;
-      object-fit: cover;
-      filter: brightness(0.9);
-    }
+.slides img {
+  width: 20%;
+  height: 500px;
+  object-fit: cover;
+  filter: brightness(0.9);
+}
 
-    /* Animación: avanza → pausa → regresa → pausa */
-    @keyframes slide {
-      0%   { transform: translateX(0); }          /* Imagen 1 */
-      20%  { transform: translateX(-100%); }      /* Imagen 2 */
-      40%  { transform: translateX(-200%); }      /* Imagen 3 */
-      60%  { transform: translateX(-300%); }      /* Imagen 4 */
-      70%  { transform: translateX(-400%); }      /* Imagen 5 */
-      80%  { transform: translateX(-400%); }      /* 🔹 pausa 10 s en la 5 */
-      100% { transform: translateX(0); }          /* 🔹 regreso suave */
-    }
+/* Animación del desplazamiento */
+@keyframes slide {
+  0%   { transform: translateX(0); }          
+  20%  { transform: translateX(-100%); }      
+  40%  { transform: translateX(-200%); }      
+  60%  { transform: translateX(-300%); }      
+  70%  { transform: translateX(-400%); }      
+  80%  { transform: translateX(-400%); }      
+  100% { transform: translateX(0); }          
+}
+
+/* === TEXTO DEL SLIDER === */
+.slider-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 25px 50px;
+  border-radius: 12px;
+  animation: textFade 70s infinite ease-in-out;
+}
+
+/* 🔹 Animación sincronizada con el slide */
+@keyframes textFade {
+  0%, 60% { opacity: 1; }   /* visible hasta la 4ª imagen */
+  70%, 80% { opacity: 0; }  /* se desvanece en la 5ª */
+  100% { opacity: 1; }      /* vuelve a aparecer al reiniciar */
+}
+
+.slider-text h1 {
+  font-size: 2.3em;
+  font-weight: bold;
+}
+
+.slider-text p {
+  font-size: 1.1em;
+  margin-top: 8px;
+}
 
     /* === SECCIONES COLORIDAS === */
     .sections {
