@@ -13,7 +13,6 @@
       overflow-x: hidden;
     }
 
-    /* === ENCABEZADO === */
     header {
       background-color: #0289a1;
       display: flex;
@@ -26,238 +25,196 @@
       z-index: 1000;
     }
 
-    .logo img {
-      height: 60px;
-      cursor: pointer;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      transition: opacity 0.3s;
-    }
-
+    .logo img { height: 60px; cursor: pointer; }
+    nav ul { list-style: none; display: flex; gap: 25px; }
+    nav a { color: white; text-decoration: none; font-weight: 600; transition: opacity 0.3s; }
     nav a:hover { opacity: 0.7; }
 
-   /* === SLIDER === */
-.slider {
-  position: relative;
-  width: 100%;
-  height: 500px;
-  overflow: hidden;
+    /* === SLIDER AUTOMÁTICO === */
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+      background-color: #0098B0;
+    }
 
-  /* 🔹 Fondo con el logo cuando llega al final */
-  background: url('IMAGENES/fondo.png') center center no-repeat;
-  background-size: contain;
-  background-color: #0098B0;
-}
+    .slider img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
 
-.slides {
-  display: flex;
-  width: 600%;
-  animation: slide 70s infinite ease-in-out;
-}
+    .slider img.active {
+      opacity: 1;
+      z-index: 1;
+    }
 
-.slides img {
-  width: 20%;
-  height: 500px;
-  object-fit: cover;
-  filter: brightness(0.9);
-}
+    .slider-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 25px 50px;
+      border-radius: 12px;
+      z-index: 2;
+    }
 
-/* Animación del desplazamiento */
-@keyframes slide {
-  0%   { transform: translateX(0); }          
-  20%  { transform: translateX(-100%); }      
-  40%  { transform: translateX(-200%); }      
-  60%  { transform: translateX(-300%); }      
-  70%  { transform: translateX(-400%); }      
-  80%  { transform: translateX(-400%); }      
-  100% { transform: translateX(0); }          
-}
+    .slider-buttons {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 3;
+    }
 
-/* === TEXTO DEL SLIDER === */
-.slider-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 25px 50px;
-  border-radius: 12px;
-  animation: textFade 70s infinite ease-in-out;
-}
+    .slider-buttons span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: white;
+      opacity: 0.6;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
 
-/* 🔹 Animación sincronizada con el slide */
-@keyframes textFade {
-  0%, 60% { opacity: 1; }   /* visible hasta la 4ª imagen */
-  70%, 80% { opacity: 0; }  /* se desvanece en la 5ª */
-  100% { opacity: 1; }      /* vuelve a aparecer al reiniciar */
-}
-
-.slider-text h1 {
-  font-size: 2.3em;
-  font-weight: bold;
-}
-
-.slider-text p {
-  font-size: 1.1em;
-  margin-top: 8px;
-}
+    .slider-buttons span.active {
+      opacity: 1;
+      background: #0289a1;
+      transform: scale(1.2);
+    }
 
     /* === SECCIONES COLORIDAS === */
-    .sections {
-      display: flex;
-      text-align: center;
-    }
-
+    .sections { display: flex; text-align: center; }
     .section {
-      flex: 1;
-      color: white;
-      font-weight: bold;
-      font-size: 1.2em;
-      padding: 40px 10px;
-      cursor: pointer;
-      transition: opacity 0.3s;
+      flex: 1; color: white; font-weight: bold; font-size: 1.2em;
+      padding: 40px 10px; cursor: pointer; transition: opacity 0.3s;
     }
-
     .section:hover { opacity: 0.85; }
-
     .rojo { background-color: #CF3B1F; }
     .amarillo { background-color: #EDD428; }
     .azul { background-color: #2C8FD4; }
     .verde { background-color: #44DE3A; }
 
-    /* === VIDEO Y DESCRIPCIÓN === */
-    .intro {
-      display: flex;
-      flex-wrap: wrap;
+    /* === MODAL (CÓMO AYUDAR) === */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
       justify-content: center;
       align-items: center;
-      background: #f2f7f7;
-      padding: 60px 20px;
-      gap: 40px;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-content {
+      background: white;
+      padding: 25px 35px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 400px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      animation: slideUp 0.5s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-content h3 { color: #0289a1; margin-bottom: 15px; }
+    .modal-content button {
+      background: #0289a1; color: white; border: none;
+      padding: 8px 16px; border-radius: 6px; cursor: pointer;
+    }
+    .modal-content button:hover { opacity: 0.85; }
+
+    .modal-content a {
+      display: inline-block;
+      margin-top: 10px;
+      background: #25D366;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .modal-content a:hover {
+      background: #1ebd5a;
+    }
+
+    /* === RESTO (VIDEO, TESTIMONIOS, NOTICIAS, FOOTER) === */
+    .intro {
+      display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+      background: #f2f7f7; padding: 60px 20px; gap: 40px;
     }
 
     .intro iframe {
-      width: 480px;
-      height: 270px;
-      border-radius: 15px;
+      width: 480px; height: 270px; border-radius: 15px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
     .intro p {
-      max-width: 450px;
-      font-size: 1.1em;
-      color: #333;
-      line-height: 1.6;
+      max-width: 450px; font-size: 1.1em; color: #333; line-height: 1.6;
     }
 
-    /* === TESTIMONIOS === */
-    .testimonios {
-      background: white;
-      text-align: center;
-      padding: 70px 20px;
-    }
-
+    .testimonios { background: white; text-align: center; padding: 70px 20px; }
     .testimonios h2 { color: #007b85; margin-bottom: 25px; }
 
-    .citas {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-    }
-
+    .citas { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
     .cita {
-      background: #f2f2f2;
-      border-radius: 20px;
-      padding: 20px 30px;
-      max-width: 400px;
-      text-align: left;
-      position: relative;
+      background: #f2f2f2; border-radius: 20px; padding: 20px 30px; max-width: 400px;
+      text-align: left; position: relative;
     }
-
     .cita::before {
-      content: "“";
-      font-size: 50px;
-      color: #ccc;
-      position: absolute;
-      left: 15px;
-      top: -10px;
+      content: "“"; font-size: 50px; color: #ccc; position: absolute; left: 15px; top: -10px;
     }
+    .nombre { margin-top: 10px; font-weight: bold; color: #007b85; }
 
-    .nombre {
-      margin-top: 10px;
-      font-weight: bold;
-      color: #007b85;
-    }
-
-    /* === NOTICIAS === */
-    .noticias {
-      padding: 60px 20px;
-      text-align: center;
-      background: #f9fafb;
-    }
-
+    .noticias { padding: 60px 20px; text-align: center; background: #f9fafb; }
     .noticias h2 { color: #007b85; margin-bottom: 20px; }
 
     .cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 25px;
     }
 
     .card {
-      background: white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      width: 280px;
+      background: white; border-radius: 15px; overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 280px;
       transition: transform 0.3s;
     }
-
     .card:hover { transform: scale(1.03); }
+    .card img { width: 100%; height: 170px; object-fit: cover; }
+    .card p { padding: 15px; color: #333; font-weight: 500; }
 
-    .card img {
-      width: 100%;
-      height: 170px;
-      object-fit: cover;
-    }
-
-    .card p {
-      padding: 15px;
-      color: #333;
-      font-weight: 500;
-    }
-
-    /* === FOOTER === */
     footer {
-      background-color: #0289a1;
-      color: white;
-      padding: 40px 8%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      background-color: #0289a1; color: white;
+      padding: 40px 8%; display: flex; flex-wrap: wrap; justify-content: space-between;
     }
-
     footer div { margin-bottom: 20px; }
     footer a { color: white; text-decoration: none; }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
     <div class="logo" onclick="location.href='index.html'">
       <img src="IMAGENES/headlogo.png" alt="Logo Transformando Vidas" />
@@ -274,33 +231,43 @@
   </header>
 
   <!-- SLIDER -->
-  <section class="slider">
-    <div class="slides">
-      <img src="IMAGENES/imagenesslide1.jpeg" alt="">
-      <img src="IMAGENES/imagenesslide2.jpeg" alt="">
-      <img src="IMAGENES/imagenesslide3.jpeg" alt="">
-      <img src="IMAGENES/imagenesslide4.jpeg" alt="">
-      <img src="IMAGENES/imagenesslide5.jpg" alt="">
-    </div>
+  <section class="slider" id="slider">
+    <img src="IMAGENES/imagenesslide1.jpeg" class="active" alt="">
+    <img src="IMAGENES/imagenesslide2.jpeg" alt="">
+    <img src="IMAGENES/imagenesslide3.jpeg" alt="">
+    <img src="IMAGENES/imagenesslide4.jpeg" alt="">
+    <img src="IMAGENES/imagenesslide5.jpg" alt="">
     <div class="slider-text">
       <h1>Transformando Vidas</h1>
-      <p>Arte, educacion y deporte al servicio del bienestar juvenil y la convivencia.</p>
+      <p>Arte, educación y deporte al servicio del bienestar juvenil y la convivencia.</p>
     </div>
+    <div class="slider-buttons" id="sliderButtons"></div>
   </section>
 
   <!-- SECCIONES COLORIDAS -->
   <div class="sections">
     <div class="section rojo">CONÓCENOS</div>
     <div class="section amarillo">ASÍ TRABAJAMOS</div>
-    <div class="section azul">¿CÓMO AYUDAR?</div>
+    <div class="section azul" id="ayudarBtn">¿CÓMO AYUDAR?</div>
     <div class="section verde">CONTÁCTANOS</div>
   </div>
 
-  <!-- VIDEO Y DESCRIPCIÓN -->
+  <!-- MODAL -->
+  <div class="modal" id="ayudarModal">
+    <div class="modal-content">
+      <h3>¿Quieres ayudarnos?</h3>
+      <p>Puedes comunicarte con nosotros al correo <b>contacto@transformandovidas.org</b><br>
+      o por WhatsApp para más información.</p>
+      <a href="https://wa.me/573001234567" target="_blank">Ir a WhatsApp</a><br><br>
+      <button onclick="cerrarModal()">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- VIDEO -->
   <section class="intro">
     <iframe src="https://www.youtube.com/embed/MFhPo9bgXB8?si=D1G27BDb2e8ok9d1" title="Video Transformando Vidas" allowfullscreen></iframe>
     <p>
-      Somos un programa psicosocial dedicado a fortalecer la salud mental de adolescentes mediante estrategias basadas en el arte, la educacion y el deporte. Creemos en el poder de la creatividad para construir comunidades más seguras, empáticas y resilientes.
+      Somos un programa psicosocial dedicado a fortalecer la salud mental de adolescentes mediante estrategias basadas en el arte, la educación y el deporte. Creemos en el poder de la creatividad para construir comunidades más seguras, empáticas y resilientes.
     </p>
   </section>
 
@@ -354,12 +321,45 @@
 
     <div>
       <h4>Redes</h4>
-      <p>📘 Facebook<br>📷 Instagram<br>▶ YouTube</p>
+      <p>📷 <a href="https://www.instagram.com/ccccam4/?hl=es-la" target="_blank">Instagram</a></p>
     </div>
   </footer>
+
+  <script>
+    /* === SLIDER AUTOMÁTICO === */
+    const slides = document.querySelectorAll('.slider img');
+    const btnContainer = document.getElementById('sliderButtons');
+    let index = 0;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.addEventListener('click', () => showSlide(i));
+      btnContainer.appendChild(dot);
+    });
+
+    const dots = btnContainer.querySelectorAll('span');
+
+    function showSlide(n) {
+      slides[index].classList.remove('active');
+      dots[index].classList.remove('active');
+      index = (n + slides.length) % slides.length;
+      slides[index].classList.add('active');
+      dots[index].classList.add('active');
+    }
+
+    function autoSlide() { showSlide(index + 1); }
+    showSlide(0);
+    setInterval(autoSlide, 8000); // ⏳ cambia cada 8 segundos
+
+    /* === MODAL CÓMO AYUDAR === */
+    const modal = document.getElementById('ayudarModal');
+    const btn = document.getElementById('ayudarBtn');
+
+    btn.onclick = () => modal.style.display = 'flex';
+    function cerrarModal() { modal.style.display = 'none'; }
+    window.cerrarModal = cerrarModal;
+
+    window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; };
+  </script>
 </body>
 </html>
-
-
-
-
