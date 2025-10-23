@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Transformando Vidas – Arte, educación y bienestar</title>
 
-    <!-- FAVICON -->
+  <!-- FAVICON -->
   <link rel="icon" type="image/png" href="IMAGENES/headlogo.png">
   
   <style>
@@ -165,7 +165,6 @@
       background: #1ebd5a;
     }
 
-    /* === RESTO (VIDEO, TESTIMONIOS, NOTICIAS, FOOTER) === */
     .intro {
       display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
       background: #f2f7f7; padding: 60px 20px; gap: 40px;
@@ -193,28 +192,70 @@
     }
     .nombre { margin-top: 10px; font-weight: bold; color: #007b85; }
 
-    .noticias { padding: 60px 20px; text-align: center; background: #f9fafb; }
-    .noticias h2 { color: #007b85; margin-bottom: 20px; }
-
-    .cards {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 25px;
-    }
-
-    .card {
-      background: white; border-radius: 15px; overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 280px;
-      transition: transform 0.3s;
-    }
-    .card:hover { transform: scale(1.03); }
-    .card img { width: 100%; height: 170px; object-fit: cover; }
-    .card p { padding: 15px; color: #333; font-weight: 500; }
-
     footer {
       background-color: #0289a1; color: white;
       padding: 40px 8%; display: flex; flex-wrap: wrap; justify-content: space-between;
     }
     footer div { margin-bottom: 20px; }
     footer a { color: white; text-decoration: none; }
+
+    /* === NUEVA SECCIÓN DE NOTICIAS === */
+    .noticias {
+      padding: 60px 20px;
+      background: #f9fafb;
+      text-align: center;
+    }
+    .noticias h2 { color: #007b85; margin-bottom: 20px; }
+    .noticias-container {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 25px;
+    }
+    .card {
+      background: white; border-radius: 15px; box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      width: 300px; overflow: hidden; cursor: pointer;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    }
+    .img-wrap {
+      height: 200px; display: flex; align-items: center; justify-content: center;
+      background: #fff; border-bottom: 3px solid rgba(2,137,161,0.08);
+      padding: 10px;
+    }
+    .img-wrap img {
+      max-height: 100%; max-width: 100%; object-fit: contain;
+      border-radius: 8px; transition: transform 0.35s ease;
+    }
+    .card:hover .img-wrap img { transform: scale(1.03); }
+    .card-content { padding: 16px; }
+    .card-content h3 { color: #0289a1; font-size: 1.05em; }
+    .card-content p { color: #555; font-size: 0.95em; line-height: 1.4; }
+
+    /* MODAL DE NOTICIAS */
+    #noticiaModal {
+      display: none;
+      position: fixed;
+      z-index: 3000;
+      left: 0; top: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.65);
+      justify-content: center; align-items: center;
+    }
+    #noticiaModal .modal-content {
+      background: white; border-radius: 15px; padding: 24px;
+      max-width: 700px; width: 80%; text-align: left;
+    }
+    #noticiaModal img {
+      width: 100%; max-height: 420px; object-fit: contain;
+      border-radius: 10px; margin: 14px 0;
+    }
+    .botones-modal {
+      margin-top: 18px; display: flex; justify-content: space-between;
+    }
+    .botones-modal button {
+      background: #0289a1; color: white; border: none;
+      padding: 8px 15px; border-radius: 6px; cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -290,24 +331,56 @@
     </div>
   </section>
 
-  <!-- NOTICIAS -->
+  <!-- NUEVA SECCIÓN DE NOTICIAS -->
   <section class="noticias">
     <h2>Noticias</h2>
-    <div class="cards">
+    <div class="noticias-container">
       <div class="card">
-        <img src="IMAGENES/noticia1.JPG" alt="">
-        <p>Jóvenes de El Pozón presentan su galería artística comunitaria</p>
+        <div class="img-wrap">
+          <img src="IMAGENES/noticia1.JPG" alt="Noticia 1">
+        </div>
+        <div class="card-content">
+          <h3>Jóvenes de El Pozón presentan su galería artística comunitaria</h3>
+          <p>Una muestra de arte comunitario refleja los procesos de transformación de los jóvenes.</p>
+        </div>
       </div>
+
       <div class="card">
-        <img src="IMAGENES/noticia2.jpg" alt="">
-        <p>Taller de teatro fortalece habilidades sociales y autoestima</p>
+        <div class="img-wrap">
+          <img src="IMAGENES/noticia2.jpg" alt="Noticia 2">
+        </div>
+        <div class="card-content">
+          <h3>Taller de teatro fortalece habilidades sociales y autoestima</h3>
+          <p>El teatro promueve la comunicación, empatía y trabajo en equipo en adolescentes.</p>
+        </div>
       </div>
+
       <div class="card">
-        <img src="IMAGENES/noticia3.jpg" alt="">
-        <p>Encuentro deportivo: unión, respeto y bienestar emocional</p>
+        <div class="img-wrap">
+          <img src="IMAGENES/noticia3.jpg" alt="Noticia 3">
+        </div>
+        <div class="card-content">
+          <h3>Encuentro deportivo: unión, respeto y bienestar emocional</h3>
+          <p>Una jornada que promueve valores, cooperación y salud mental en jóvenes.</p>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- MODAL DE NOTICIAS -->
+  <div class="modal" id="noticiaModal">
+    <div class="modal-content noticia-modal" id="modalContenido">
+      <h3 id="noticiaTitulo"></h3>
+      <p id="noticiaFecha" style="color:gray; font-size:0.9em;"></p>
+      <img id="noticiaImagen" src="" alt="">
+      <p id="noticiaTexto"></p>
+      <div class="botones-modal">
+        <button id="prevNoticia">← Anterior</button>
+        <button id="cerrarBtn">Cerrar</button>
+        <button id="nextNoticia">Siguiente →</button>
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer>
@@ -353,23 +426,68 @@
 
     function autoSlide() { showSlide(index + 1); }
     showSlide(0);
-    setInterval(autoSlide, 8000); // ⏳ cambia cada 8 segundos
+    setInterval(autoSlide, 8000);
 
     /* === MODAL CÓMO AYUDAR === */
     const modal = document.getElementById('ayudarModal');
-    const btn = document.getElementById('ayudarBtn');
-
-    btn.onclick = () => modal.style.display = 'flex';
+    document.getElementById('ayudarBtn').onclick = () => modal.style.display = 'flex';
     function cerrarModal() { modal.style.display = 'none'; }
-    window.cerrarModal = cerrarModal;
+    window.onclick = e => { if (e.target == modal) cerrarModal(); }
 
-    window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; };
+    /* === MODAL NOTICIAS === */
+    const cards = document.querySelectorAll('.card');
+    const noticiaModal = document.getElementById('noticiaModal');
+    const titulo = document.getElementById('noticiaTitulo');
+    const texto = document.getElementById('noticiaTexto');
+    const imagen = document.getElementById('noticiaImagen');
+    let current = 0;
+
+    const noticias = [
+      {
+        titulo: "Jóvenes de El Pozón presentan su galería artística comunitaria",
+        texto: "El proyecto 'Transformando Vidas' reunió a jóvenes del barrio El Pozón para exponer obras que reflejan sus historias de superación y creatividad. La comunidad participó activamente en esta iniciativa que promueve la inclusión social a través del arte.",
+        imagen: "IMAGENES/noticia1.JPG"
+      },
+      {
+        titulo: "Taller de teatro fortalece habilidades sociales y autoestima",
+        texto: "Durante el taller, los jóvenes exploraron sus emociones mediante la expresión teatral, fortaleciendo su comunicación y autoconfianza. Estas actividades fomentan el trabajo en equipo y la empatía entre los participantes.",
+        imagen: "IMAGENES/noticia2.jpg"
+      },
+      {
+        titulo: "Encuentro deportivo: unión, respeto y bienestar emocional",
+        texto: "El encuentro deportivo integró a adolescentes y familias en una jornada de sana competencia y reflexión sobre el respeto mutuo. La actividad cerró con un conversatorio sobre la importancia de la salud mental en el deporte.",
+        imagen: "IMAGENES/noticia3.jpg"
+      }
+    ];
+
+    cards.forEach((card, i) => {
+      card.addEventListener('click', () => {
+        mostrarNoticia(i);
+      });
+    });
+
+    function mostrarNoticia(i) {
+      current = i;
+      const n = noticias[i];
+      titulo.textContent = n.titulo;
+      texto.textContent = n.texto;
+      imagen.src = n.imagen;
+      noticiaModal.style.display = 'flex';
+    }
+
+    document.getElementById('cerrarBtn').onclick = () => noticiaModal.style.display = 'none';
+    document.getElementById('prevNoticia').onclick = () => {
+      current = (current - 1 + noticias.length) % noticias.length;
+      mostrarNoticia(current);
+    };
+    document.getElementById('nextNoticia').onclick = () => {
+      current = (current + 1) % noticias.length;
+      mostrarNoticia(current);
+    };
+
+    window.onclick = e => {
+      if (e.target == noticiaModal) noticiaModal.style.display = 'none';
+    };
   </script>
 </body>
 </html>
-
-
-
-
-
-
