@@ -170,9 +170,31 @@
       background: #f2f7f7; padding: 60px 20px; gap: 40px;
     }
 
-    .intro iframe {
-      width: 480px; height: 270px; border-radius: 15px;
+    .mini-slider {
+      position: relative;
+      width: 480px;
+      height: 270px;
+      border-radius: 15px;
+      overflow: hidden;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .mini-slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .mini-slide.active {
+      opacity: 1;
+    }
+
+    .mini-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .intro p {
@@ -308,11 +330,23 @@
     </div>
   </div>
 
-  <!-- VIDEO -->
+  <!-- GALERÍA DE IMÁGENES (REEMPLAZO DEL VIDEO) -->
   <section class="intro">
-    <iframe src="https://www.youtube.com/embed/MFhPo9bgXB8?si=D1G27BDb2e8ok9d1" title="Video Transformando Vidas" allowfullscreen></iframe>
+    <div class="mini-slider">
+      <div class="mini-slide active"><img src="IMAGENES/galeria1.jpg" alt=""></div>
+      <div class="mini-slide"><img src="IMAGENES/R1.jpg" alt=""></div>
+      <div class="mini-slide"><img src="IMAGENES/R2.jpg" alt=""></div>
+      <div class="mini-slide"><img src="IMAGENES/R3.jpg" alt=""></div>
+      <div class="mini-slide"><img src="IMAGENES/R4.jpg" alt=""></div>
+      <div class="mini-slide"><img src="IMAGENES/R5.jpg" alt=""></div>
+      <div class="mini-slide"><img src="IMAGENES/R6.jpg" alt=""></div>
+      <div class="mini-slide"><img src="IMAGENES/R7.jpg" alt=""></div>
+      <div class="mini-slide"><img src="IMAGENES/R8.jpg" alt=""></div>
+    </div>
+
     <p>
-      Somos un programa psicosocial dedicado a fortalecer la salud mental de adolescentes mediante estrategias basadas en el arte, la educación y el deporte. Creemos en el poder de la creatividad para construir comunidades más seguras, empáticas y resilientes.
+      Somos un programa psicosocial dedicado a fortalecer la salud mental de adolescentes mediante estrategias basadas en el arte, la educación y el deporte. 
+      Creemos en el poder de la creatividad para construir comunidades más seguras, empáticas y resilientes.
     </p>
   </section>
 
@@ -488,6 +522,18 @@
     window.onclick = e => {
       if (e.target == noticiaModal) noticiaModal.style.display = 'none';
     };
+
+    /* === MINI SLIDER AUTOMÁTICO (INTRO) === */
+    const miniSlides = document.querySelectorAll('.mini-slide');
+    let miniIndex = 0;
+
+    function showMiniSlide(n) {
+      miniSlides[miniIndex].classList.remove('active');
+      miniIndex = (n + miniSlides.length) % miniSlides.length;
+      miniSlides[miniIndex].classList.add('active');
+    }
+
+    setInterval(() => showMiniSlide(miniIndex + 1), 4000);
   </script>
 </body>
 </html>
